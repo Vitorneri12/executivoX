@@ -7,14 +7,13 @@ Página estática reproduzindo o material institucional, com animações de scro
 ## Estrutura
 
 ```
-site/
-├── index.html        # página completa
-└── assets/           # imagens
+index.html        # página completa (raiz, para o GitHub Pages)
+assets/           # imagens
 ```
 
 ## Como visualizar
 
-Abra `site/index.html` no navegador.
+Abra `index.html` no navegador, ou acesse a versão publicada via GitHub Pages.
 
 ---
 TexanGroup · www.texangroup.com.br
