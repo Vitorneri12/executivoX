@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ExecutivoX — Inteligência Artificial Estratégica | TexanGroup</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<meta name="theme-color" content="#1b3a5b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -57,8 +61,9 @@
   .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
        padding:16px 32px;transition:.35s ease;backdrop-filter:blur(0px);}
   .nav.scrolled{background:rgba(16,41,66,.82);backdrop-filter:blur(14px);box-shadow:0 8px 30px -12px rgba(0,0,0,.5);padding:11px 32px;}
-  .nav .brand{font-family:'Lora',serif;font-weight:700;font-size:21px;color:#fff;letter-spacing:.3px;}
-  .nav .brand span{color:var(--accent);}
+  .nav .brand{display:flex;align-items:center;text-decoration:none;}
+  .nav .brand img{height:30px;width:auto;display:block;transition:height .35s ease;}
+  .nav.scrolled .brand img{height:26px;}
   .nav .links{display:flex;gap:28px;align-items:center;}
   .nav .links a{color:#c6d4e2;text-decoration:none;font-size:14.5px;font-weight:500;transition:.2s;position:relative;}
   .nav .links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:.25s;}
@@ -224,7 +229,7 @@
 
 <!-- NAVBAR -->
 <nav class="nav" id="nav">
-  <div class="brand">Executivo<span>X</span></div>
+  <a href="#" class="brand"><img src="assets/logo-executivox.png" alt="ExecutivoX"></a>
   <div class="links">
     <a href="#problema">Problema</a>
     <a href="#solucao">Solução</a>
