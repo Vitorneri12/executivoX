@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KF87LXTGFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KF87LXTGFS');
+</script>
 <title>ExecutivoX — Inteligência Artificial Estratégica | TexanGroup</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -560,10 +568,106 @@
     document.querySelectorAll('.js-open-ia').forEach(function(el){
       el.addEventListener('click',function(e){
         e.preventDefault();
+        track('gerar_lead',{method:'ia_widget',event_category:'engajamento',event_label:rotulo(el),location:secao(el)});
+        track('open_ia_widget',{event_category:'ia',event_label:rotulo(el),location:secao(el)});
         abrirIA();
       });
     });
   })();
+</script>
+
+<!-- ===================== Google Analytics: mapeamento de eventos ===================== -->
+<script>
+(function(){
+  function track(name,params){ if(typeof gtag==='function'){ gtag('event',name,params||{}); } }
+  window.track=track;
+  function rotulo(el){ return (el.getAttribute('data-ga')||el.getAttribute('aria-label')||(el.textContent||'').trim()).slice(0,80); }
+  window.rotulo=rotulo;
+  function secao(el){ var s=el.closest('section,footer,nav'); return s?(s.id||s.tagName.toLowerCase()):'pagina'; }
+  window.secao=secao;
+
+  function init(){
+    // --- Cliques em WhatsApp (CTAs de demonstração e contato) ---
+    document.querySelectorAll('a[href*="wa.me"], a[href^="https://wa.me"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        var txt=(a.textContent||'').toLowerCase();
+        var isDemo=/demonstra|agendar|solicitar|demo/.test(txt);
+        if(isDemo){ track('gerar_lead',{method:'whatsapp',event_category:'conversao',event_label:rotulo(a),location:secao(a)}); }
+        track('whatsapp_click',{event_category:'contato',event_label:rotulo(a),location:secao(a)});
+      });
+    });
+
+    // --- Navegação interna (menu topo, links do rodapé com âncora) ---
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      if(a.classList.contains('js-open-ia')) return; // já rastreado acima
+      a.addEventListener('click',function(){
+        track('nav_click',{event_category:'navegacao',event_label:rotulo(a),destino:a.getAttribute('href'),location:secao(a)});
+      });
+    });
+
+    // --- Redes sociais ---
+    document.querySelectorAll('.f-social a').forEach(function(a){
+      a.addEventListener('click',function(){
+        var rede=(a.getAttribute('aria-label')||'').toLowerCase()||'social';
+        track('social_click',{event_category:'social',event_label:rede,link_url:a.href});
+      });
+    });
+
+    // --- Contato (endereço, site, telefone) ---
+    document.querySelectorAll('.f-contact a').forEach(function(a){
+      a.addEventListener('click',function(){
+        var tipo=a.href.indexOf('tel:')===0?'telefone':(a.href.indexOf('maps')>-1?'endereco':'site');
+        track('contact_click',{event_category:'contato',event_label:tipo,link_url:a.href});
+      });
+    });
+
+    // --- Links externos genéricos (ex.: TexanGroup) ---
+    document.querySelectorAll('a[href^="http"]').forEach(function(a){
+      if(a.href.indexOf('wa.me')>-1) return;
+      if(a.closest('.f-social')||a.closest('.f-contact')) return;
+      a.addEventListener('click',function(){
+        track('outbound_click',{event_category:'saida',event_label:rotulo(a),link_url:a.href});
+      });
+    });
+
+    // --- Visualização de cada seção (engajamento por bloco) ---
+    var vistas={};
+    var secObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var sec=e.target; var id=sec.id||'sec';
+          if(!vistas[id]){ vistas[id]=true; track('view_section',{event_category:'engajamento',event_label:id}); }
+          secObserver.unobserve(sec);
+        }
+      });
+    },{threshold:.4});
+    document.querySelectorAll('section[id], footer').forEach(function(s){ secObserver.observe(s); });
+
+    // --- Profundidade de rolagem (25/50/75/100%) ---
+    var marcos=[25,50,75,100], atingidos={};
+    function onScroll(){
+      var h=document.documentElement;
+      var pct=Math.round(((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100);
+      marcos.forEach(function(m){
+        if(pct>=m && !atingidos[m]){ atingidos[m]=true; track('scroll_depth',{event_category:'engajamento',event_label:m+'%',percent:m}); }
+      });
+    }
+    window.addEventListener('scroll',onScroll,{passive:true});
+
+    // --- Interações com o widget da IA (ElevenLabs): início/fim de chamada ---
+    var w=document.querySelector('elevenlabs-convai');
+    if(w){
+      ['elevenlabs-convai:call','convai-call-start','call-start'].forEach(function(ev){
+        w.addEventListener(ev,function(){ track('ia_call_start',{event_category:'ia',event_label:'elevenlabs'}); });
+      });
+      ['elevenlabs-convai:call-end','convai-call-end','call-end'].forEach(function(ev){
+        w.addEventListener(ev,function(){ track('ia_call_end',{event_category:'ia',event_label:'elevenlabs'}); });
+      });
+    }
+  }
+
+  if(document.readyState!=='loading'){ init(); } else { document.addEventListener('DOMContentLoaded',init); }
+})();
 </script>
 </body>
 </html>
