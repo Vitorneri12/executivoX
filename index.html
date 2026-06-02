@@ -242,7 +242,7 @@
     <p class="body reveal" data-d="2">ExecutivoX conecta ERP, CRM, Financeiro, Produção e Operações para transformar dados dispersos em respostas executivas imediatas. Descubra onde sua empresa perde dinheiro, quais oportunidades estão escondidas e quais decisões devem ser tomadas agora.</p>
     <div class="btns reveal" data-d="3" style="justify-content:flex-start">
       <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener" class="btn btn-solid">Solicitar Demonstração</a>
-      <a href="#ia" class="btn btn-outline">Conversar com a IA</a>
+      <a href="#ia" class="btn btn-outline js-open-ia">Conversar com a IA</a>
     </div>
   </div>
   <div class="hero-img" role="img" aria-label="Sala de reunião executiva com painéis holográficos"></div>
@@ -416,7 +416,7 @@
       <p>Transforme dados corporativos em inteligência estratégica para tomada de decisão imediata. O ExecutivoX está pronto para responder qualquer pergunta sobre sua empresa — agora.</p>
       <div class="btns">
         <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener" class="btn btn-solid">Agendar Demonstração</a>
-        <a href="#ia" class="btn btn-outline">Conversar com a IA</a>
+        <a href="#ia" class="btn btn-outline js-open-ia">Conversar com a IA</a>
         <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20ExecutivoX." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
       </div>
     </div>
@@ -529,5 +529,37 @@
 <!-- Widget de IA conversacional (ElevenLabs ConvAI) -->
 <elevenlabs-convai agent-id="agent_9901kfxtzhbgf8r9bc2x99db4s3e"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<script>
+  // "Conversar com a IA" abre/expande o widget da ElevenLabs (mostrando o Iniciar chamada)
+  (function(){
+    function clicarLauncher(root){
+      if(!root) return false;
+      var btns=root.querySelectorAll('button, [role="button"]');
+      if(!btns.length) return false;
+      var alvo=null;
+      btns.forEach(function(b){
+        var t=((b.textContent||'')+' '+(b.getAttribute('aria-label')||'')).toLowerCase();
+        if(/cham|call|start|iniciar|conversar|talk|falar/.test(t)) alvo=b;
+      });
+      (alvo||btns[0]).click();
+      return true;
+    }
+    function abrirIA(){
+      var w=document.querySelector('elevenlabs-convai');
+      var tentar=function(n){
+        if(w&&w.shadowRoot&&clicarLauncher(w.shadowRoot)) return;
+        if(n<25) setTimeout(function(){tentar(n+1);},150);
+      };
+      tentar(0);
+    }
+    document.querySelectorAll('.js-open-ia').forEach(function(el){
+      el.addEventListener('click',function(e){
+        e.preventDefault();
+        abrirIA();
+      });
+    });
+  })();
+</script>
 </body>
 </html>
