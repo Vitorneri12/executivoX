@@ -1,673 +1,353 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KF87LXTGFS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KF87LXTGFS');
-</script>
-<title>ExecutivoX — Inteligência Artificial Estratégica | TexanGroup</title>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
-<meta name="theme-color" content="#1b3a5b">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#1b3a5b;
-    --bg-2:#16314e;
-    --bg-hero:#102942;
-    --card:#15334f;
-    --card-2:#0f2a44;
-    --card-line:rgba(120,160,200,.22);
-    --heading:#9cc0e4;
-    --heading-2:#bcd6ef;
-    --eyebrow:#5b9fd6;
-    --text:#c6d4e2;
-    --text-dim:#9db1c5;
-    --white:#ffffff;
-    --green:#34480f;
-    --light-panel:#5e9bd6;
-    --accent:#4f8fcf;
-    --accent-glow:rgba(79,143,207,.45);
-    --shadow:0 18px 50px -20px rgba(0,0,0,.55);
-    --shadow-lg:0 30px 70px -25px rgba(0,0,0,.7);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:600;color:var(--heading);line-height:1.18;letter-spacing:-.3px;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  section{padding:96px 0;position:relative;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ExecutivoX: command center de inteligência executiva da TexanGroup para transformar dados corporativos em decisões estratégicas."
+    />
+    <title>ExecutivoX | Inteligência Executiva</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KF87LXTGFS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-KF87LXTGFS");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/brand/executivox-icon-site.png" />
+    <link rel="apple-touch-icon" href="assets/brand/executivox-icon-site.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="ExecutivoX">
+        <img class="brand-logo" src="assets/brand/executivox-logo-site.png" alt="ExecutivoX" />
+      </a>
 
-  /* ambient glows removed for a cleaner, editorial look */
-  .glow{display:none;}
-  .wrap,.hero-text,.hero-img{position:relative;z-index:1;}
-
-  /* eyebrow + titles */
-  .eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--eyebrow);font-family:'Inter';font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
-  .eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--eyebrow));}
-  .eyebrow::after{background:linear-gradient(90deg,var(--eyebrow),transparent);}
-  .sec-title{text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:18px;color:var(--heading);}
-  .sec-intro{text-align:center;max-width:920px;margin:0 auto 54px;color:var(--text-dim);font-size:17px;}
-
-  /* NAVBAR */
-  .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-       padding:16px 32px;transition:.35s ease;backdrop-filter:blur(0px);}
-  .nav.scrolled{background:rgba(16,41,66,.82);backdrop-filter:blur(14px);box-shadow:0 8px 30px -12px rgba(0,0,0,.5);padding:11px 32px;}
-  .nav .brand{display:flex;align-items:center;text-decoration:none;}
-  .nav .brand img{height:52px;width:auto;display:block;transition:height .35s ease;}
-  .nav.scrolled .brand img{height:42px;}
-  .nav .links{display:flex;gap:28px;align-items:center;}
-  .nav .links a{color:#c6d4e2;text-decoration:none;font-size:14.5px;font-weight:500;transition:.2s;position:relative;}
-  .nav .links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:.25s;}
-  .nav .links a:not(.nav-cta):hover{color:#fff;}
-  .nav .links a:not(.nav-cta):hover::after{width:100%;}
-  .nav-cta{background:var(--accent);color:#fff!important;padding:9px 18px;border-radius:6px;font-weight:600!important;box-shadow:0 8px 22px -8px var(--accent-glow);transition:.25s;}
-  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px var(--accent-glow);}
-  @media(max-width:780px){.nav .links a:not(.nav-cta){display:none;}}
-
-  /* BUTTONS */
-  .btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
-  .btn{padding:14px 28px;font-size:15px;font-weight:600;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;border:1px solid rgba(255,255,255,.55);transition:background .2s,border-color .2s,color .2s;}
-  .btn-solid{background:#fff;color:#13294a;border-color:#fff;}
-  .btn-solid:hover{background:#e7eef5;}
-  .btn-outline{background:transparent;color:#fff;}
-  .btn-outline:hover{background:rgba(255,255,255,.08);border-color:#fff;}
-
-  /* ---------- HERO ---------- */
-  .hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh;padding:0;background:linear-gradient(135deg,#102942,#1b3a5b 60%,#16314e);overflow:hidden;}
-  .hero-text{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:120px 70px 80px;}
-  .hero-text h1{font-size:clamp(34px,4.4vw,50px);margin-bottom:30px;color:#e3eef9;}
-  .hero-lead{font-weight:700;color:var(--white);font-size:18px;margin-bottom:20px;}
-  .hero-text p.body{max-width:620px;font-size:16.5px;color:var(--text);margin-bottom:38px;}
-  .hero-img{position:relative;background-image:url('assets/hero.jpg');background-size:cover;background-position:center;}
-  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#16314e 0%,rgba(22,49,78,.35) 25%,transparent 60%);}
-  .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,41,66,.4),transparent 40%);}
-  /* ---------- generic cards 2x2 ---------- */
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-  .pcard{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:32px;transition:border-color .25s,transform .25s;}
-  .pcard:hover{border-color:rgba(120,160,200,.45);transform:translateY(-3px);}
-  .pcard .badge{width:52px;height:52px;border-radius:12px;background:#2f6aa8;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
-  .pcard .badge svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-  .pcard h3{font-size:22px;margin-bottom:10px;color:var(--heading-2);}
-  .pcard p{color:var(--text);font-size:15.5px;}
-
-  /* ---------- SOLUÇÃO flow ---------- */
-  .left-eyebrow{justify-content:flex-start;}
-  .left-eyebrow::before{display:none;}
-  .left-title{text-align:left;font-size:clamp(28px,4vw,42px);margin-bottom:16px;color:var(--heading);}
-  .left-intro{text-align:left;max-width:none;margin:0 0 56px;}
-  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:stretch;margin:36px 0;}
-  .step{position:relative;border:1px solid var(--card-line);border-radius:10px;padding:26px 22px 24px;background:var(--card);transition:border-color .25s,transform .25s;}
-  .step:hover{border-color:rgba(120,160,200,.5);transform:translateY(-3px);}
-  .step .stepnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-family:'Lora',serif;font-size:16px;margin-bottom:16px;}
-  .step.final .stepnum{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .step h3{font-size:19px;margin-bottom:8px;color:var(--heading-2);}
-  .step p{font-size:14px;color:var(--text-dim);}
-  .step:not(:last-child)::after{content:"";position:absolute;top:42px;right:-13px;width:8px;height:8px;border-top:1.5px solid var(--accent);border-right:1.5px solid var(--accent);transform:rotate(45deg);z-index:2;}
-  .flow-note{margin-top:40px;font-size:16px;color:var(--text-dim);}
-
-  /* ---------- BENEFÍCIOS ---------- */
-  .bcard{border:1px solid var(--card-line);border-radius:10px;padding:30px 32px;background:var(--card);transition:border-color .25s,transform .25s;}
-  .bcard:hover{transform:translateY(-3px);border-color:rgba(120,160,200,.45);}
-  .bcard h3{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:12px;color:var(--heading-2);}
-  .bcard h3 .bi{width:24px;height:24px;flex:0 0 auto;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
-  .bcard ul{list-style:none;}
-  .bcard li{position:relative;padding-left:22px;margin-bottom:11px;color:var(--text);font-size:15.5px;}
-  .bcard li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
-
-  /* ---------- MÓDULOS ---------- */
-  .mods{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 26px;}
-  .mod{transition:.35s;}
-  .mod .imgwrap{position:relative;border-radius:8px;overflow:hidden;}
-  .mod img{width:100%;height:135px;object-fit:cover;display:block;transition:transform .5s ease;}
-  .mod:hover img{transform:scale(1.05);}
-  .mod h3{font-family:'Lora',serif;font-size:20px;letter-spacing:.4px;margin:18px 0 9px;text-transform:uppercase;color:var(--heading-2);}
-  .mod p{font-size:14.8px;color:var(--text-dim);}
-
-  /* ---------- IA CONVERSACIONAL ---------- */
-  .conv{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:start;}
-  .conv-panel{background:#5e9bd6;border-radius:10px;padding:38px;color:#0c1e30;}
-  .conv-panel h3{color:#0a1c2e;font-size:25px;margin-bottom:20px;}
-  .conv-panel ul{list-style:none;margin-bottom:22px;}
-  .conv-panel li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16px;color:#0d2138;font-weight:500;}
-  .conv-panel li::before{content:"";position:absolute;left:4px;top:8px;width:14px;height:14px;border-radius:50%;border:2px solid #0d2138;}
-  .conv-panel li::after{content:"";position:absolute;left:9px;top:13px;width:4px;height:4px;border-radius:50%;background:#0d2138;}
-  .conv-panel p{font-size:16px;color:#10243b;}
-  .quote{position:relative;border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:26px;font-size:16px;color:var(--text);}
-  .quote b{color:var(--white);}
-  .greenbox{background:var(--green);border-radius:8px;padding:22px 24px;display:flex;gap:15px;align-items:flex-start;margin-bottom:30px;color:#e5eed6;font-size:15.5px;}
-  .greenbox .chk{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#9fce6a;color:#27360c;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;}
-  .conv-img{width:100%;border-radius:10px;display:block;box-shadow:var(--shadow);}
-
-  /* ---------- DIFERENCIAIS ---------- */
-  .dif{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-  .dif-left h2{text-align:left;font-size:clamp(26px,3.6vw,40px);margin-bottom:34px;color:var(--heading);}
-  .dcard{border:1px solid var(--card-line);border-left:3px solid var(--accent);border-radius:8px;padding:22px 26px;margin-bottom:16px;background:var(--card);transition:transform .25s,border-color .25s;}
-  .dcard:hover{transform:translateX(5px);border-color:rgba(120,160,200,.45);}
-  .dcard h3{font-size:21px;margin-bottom:8px;color:var(--heading-2);}
-  .dcard p{font-size:15px;color:var(--text-dim);}
-  .dif-img{background-image:url('assets/datacenter.jpg');background-size:cover;background-position:center;min-height:600px;border-radius:10px;}
-
-  /* ---------- PROVA SOCIAL ---------- */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1000px;margin:0 auto 56px;}
-  .stat{text-align:center;padding:8px 18px;}
-  .stat .num{font-family:'Lora',serif;font-weight:600;font-size:54px;line-height:1;margin-bottom:8px;color:var(--heading-2);}
-  .stat .lbl{font-family:'Lora',serif;font-size:20px;color:#aac3dc;margin-bottom:8px;}
-  .stat .desc{font-size:14px;color:var(--text-dim);}
-  .setores{display:block;margin:0 auto;max-width:1040px;width:100%;border-radius:10px;}
-
-  /* ---------- COMMAND CENTER ---------- */
-  .ccard{border:1px solid var(--card-line);border-radius:10px;padding:28px 32px;background:var(--card);transition:border-color .25s,transform .25s;}
-  .ccard:hover{transform:translateY(-3px);border-color:rgba(120,160,200,.45);}
-  .ccard h3{font-size:22px;margin-bottom:9px;color:#aac3dc;}
-  .ccard p{font-size:15.5px;color:var(--text-dim);}
-
-  /* ---------- FINAL CTA + FOOTER ---------- */
-  .final{text-align:center;position:relative;}
-  .final-cta{padding:24px 0 8px;}
-  .final h2{font-size:clamp(28px,4vw,42px);margin-bottom:24px;color:var(--heading);}
-  .final p{max-width:880px;margin:0 auto 36px;font-size:17px;color:var(--text-dim);}
-  .site-footer{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg-2),#0d2540);border-top:1px solid var(--card-line);padding:72px 0 28px;}
-  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:48px;}
-  .f-brand .logo{background:#fff;display:inline-block;padding:14px 18px;border-radius:10px;box-shadow:var(--shadow);}
-  .f-brand .logo img{height:46px;display:block;}
-  .f-tag{margin:22px 0 24px;font-size:15px;color:var(--text-dim);max-width:340px;line-height:1.7;}
-  .f-social{display:flex;gap:12px;}
-  .f-social a{width:40px;height:40px;border-radius:10px;border:1px solid var(--card-line);display:flex;align-items:center;justify-content:center;transition:.25s;background:rgba(255,255,255,.03);}
-  .f-social svg{width:18px;height:18px;fill:#9db1c5;transition:.25s;}
-  .f-social a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-3px);box-shadow:0 10px 22px -8px var(--accent-glow);}
-  .f-social a:hover svg{fill:#fff;}
-  .f-col h4{font-family:'Inter';font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aac3dc;margin-bottom:20px;}
-  .f-col>a{display:block;color:var(--text-dim);text-decoration:none;font-size:15px;margin-bottom:13px;transition:.22s;width:fit-content;}
-  .f-col>a:hover{color:#fff;transform:translateX(4px);}
-  .f-contact a{display:flex;align-items:flex-start;gap:12px;line-height:1.5;}
-  .f-contact svg{width:19px;height:19px;flex:0 0 auto;margin-top:2px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:.22s;}
-  .f-contact a:hover{transform:none;}
-  .f-contact a:hover svg{stroke:#7fb0e0;}
-  .f-contact a:hover span{color:#fff;}
-  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:54px;padding-top:26px;border-top:1px solid var(--card-line);}
-  .footer-bottom p{margin:0;font-size:14px;color:var(--text-dim);}
-  .footer-legal{display:flex;gap:26px;}
-  .footer-legal a{color:var(--text-dim);text-decoration:none;font-size:14px;transition:.2s;}
-  .footer-legal a:hover{color:#fff;}
-
-  /* ---------- SCROLL REVEAL ---------- */
-  .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
-  .reveal.in{opacity:1;transform:none;}
-  .reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}
-  .reveal[data-d="3"]{transition-delay:.24s}.reveal[data-d="4"]{transition-delay:.32s}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media(max-width:920px){
-    section{padding:68px 0;}
-    .hero{grid-template-columns:1fr;min-height:auto;}
-    .hero-text{padding:110px 32px 60px;}
-    .hero-img{min-height:340px;}
-    .grid2,.conv,.dif{grid-template-columns:1fr;}
-    .mods{grid-template-columns:1fr 1fr;}
-    .stats{grid-template-columns:1fr 1fr;gap:36px 20px;}
-    .dif-img{min-height:300px;order:-1;}
-    .flow{grid-template-columns:1fr 1fr;gap:14px;}
-    .step:not(:last-child)::after{display:none;}
-    .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
-    .f-brand{grid-column:1 / -1;}
-    .footer-bottom{justify-content:center;text-align:center;}
-  }
-  @media(max-width:560px){.mods,.stats,.flow{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}}
-</style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav class="nav" id="nav">
-  <a href="#" class="brand"><img src="assets/logo-executivox.png" alt="ExecutivoX"></a>
-  <div class="links">
-    <a href="#problema">Problema</a>
-    <a href="#solucao">Solução</a>
-    <a href="#modulos">Módulos</a>
-    <a href="#ia">IA</a>
-    <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener" class="nav-cta">Solicitar Demo</a>
-  </div>
-</nav>
-
-<!-- 1. HERO -->
-<section class="hero" style="padding:0">
-  <div class="hero-text">
-    <h1 class="reveal">ExecutivoX — Inteligência Artificial Estratégica</h1>
-    <p class="hero-lead reveal" data-d="1">Pergunte qualquer coisa sobre sua empresa. O ExecutivoX responde em segundos.</p>
-    <p class="body reveal" data-d="2">ExecutivoX conecta ERP, CRM, Financeiro, Produção e Operações para transformar dados dispersos em respostas executivas imediatas. Descubra onde sua empresa perde dinheiro, quais oportunidades estão escondidas e quais decisões devem ser tomadas agora.</p>
-    <div class="btns reveal" data-d="3" style="justify-content:flex-start">
-      <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener" class="btn btn-solid">Solicitar Demonstração</a>
-      <a href="#ia" class="btn btn-outline js-open-ia">Conversar com a IA</a>
-    </div>
-  </div>
-  <div class="hero-img" role="img" aria-label="Sala de reunião executiva com painéis holográficos"></div>
-</section>
-
-<!-- 2. O PROBLEMA -->
-<section id="problema">
-  <div class="glow glow-1"></div>
-  <div class="wrap">
-    <p class="eyebrow reveal">O Problema</p>
-    <h2 class="sec-title reveal" data-d="1">Sua empresa está tomando decisões com dados ou com suposições?</h2>
-    <p class="sec-intro reveal" data-d="2">A maioria das empresas possui dados valiosos espalhados por sistemas desconectados — mas sem inteligência para transformá-los em respostas.</p>
-    <div class="grid2">
-      <div class="pcard reveal">
-        <div class="badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M5 3 2.5 5.5M19 3l2.5 2.5"/></svg></div>
-        <h3>Relatórios Demorados</h3>
-        <p>Dias ou semanas para obter uma visão consolidada do negócio.</p>
+      <div class="system-indicator">
+        <span></span>
+        <b>IA Online</b>
       </div>
-      <div class="pcard reveal" data-d="1">
-        <div class="badge"><svg viewBox="0 0 24 24"><path d="M9 15 5.5 18.5a3 3 0 0 1-4-4L5 11M15 9l3.5-3.5a3 3 0 0 1 4 4L19 13M8 16l8-8"/></svg></div>
-        <h3>Dados Descentralizados</h3>
-        <p>Informações espalhadas em sistemas que não se comunicam entre si.</p>
-      </div>
-      <div class="pcard reveal" data-d="2">
-        <div class="badge"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M2.5 10h19"/><circle cx="17" cy="14.5" r="2"/></svg></div>
-        <h3>Custos Ocultos</h3>
-        <p>Perdas de margem invisíveis que corroem o resultado sem que ninguém perceba.</p>
-      </div>
-      <div class="pcard reveal" data-d="3">
-        <div class="badge"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.2"/><path d="M16 13.5c2.5.4 4.5 2.5 4.5 5"/></svg></div>
-        <h3>Dependência de Analistas</h3>
-        <p>Decisões estratégicas travadas aguardando planilhas e relatórios manuais.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- 3. A SOLUÇÃO -->
-<section id="solucao" style="background:var(--bg-2)">
-  <div class="wrap">
-    <p class="eyebrow left-eyebrow reveal">A Solução</p>
-    <h2 class="left-title reveal" data-d="1">Como o ExecutivoX funciona</h2>
-    <p class="sec-intro left-intro reveal" data-d="2">O ExecutivoX integra todas as fontes de dados da sua empresa em uma única inteligência estratégica, entregando respostas em segundos — sem substituir seus sistemas atuais.</p>
-
-    <div class="flow">
-      <div class="step reveal"><span class="stepnum">1</span><h3>ERP + CRM</h3><p>Centraliza operações e clientes</p></div>
-      <div class="step reveal" data-d="1"><span class="stepnum">2</span><h3>Financeiro</h3><p>Consolida receitas e custos</p></div>
-      <div class="step reveal" data-d="2"><span class="stepnum">3</span><h3>Produção</h3><p>Integra dados de manufatura</p></div>
-      <div class="step reveal" data-d="3"><span class="stepnum">4</span><h3>ExecutivoX IA</h3><p>Processa e analisa em segundos</p></div>
-      <div class="step final reveal" data-d="4"><span class="stepnum">5</span><h3>Resposta Estratégica</h3><p>Entrega ação imediata</p></div>
-    </div>
-
-    <p class="flow-note reveal">A IA proprietária da TexanGroup processa dados em tempo real de todos os sistemas conectados, identificando padrões, riscos e oportunidades que analistas humanos levariam dias para encontrar.</p>
-  </div>
-</section>
-
-<!-- 4. BENEFÍCIOS -->
-<section>
-  <div class="glow glow-2"></div>
-  <div class="wrap">
-    <p class="eyebrow reveal">Benefícios</p>
-    <h2 class="sec-title reveal" data-d="1">Resultados em quatro dimensões</h2>
-    <div class="grid2">
-      <div class="bcard reveal"><h3><svg class="bi" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Financeiros</h3><ul><li>Redução de desperdícios</li><li>Aumento de margem</li><li>Identificação de perdas ocultas</li></ul></div>
-      <div class="bcard reveal" data-d="1"><h3><svg class="bi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Operacionais</h3><ul><li>Menos relatórios manuais</li><li>Mais produtividade</li><li>Menos retrabalho</li></ul></div>
-      <div class="bcard reveal" data-d="2"><h3><svg class="bi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg> Estratégicos</h3><ul><li>Decisões baseadas em dados</li><li>Antecipação de riscos</li><li>Inteligência preditiva</li></ul></div>
-      <div class="bcard reveal" data-d="3"><h3><svg class="bi" viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M9 18h6M10 14v4M14 14v4M8 21h8"/></svg> Competitivos</h3><ul><li>Respostas em segundos</li><li>Escalabilidade total</li><li>Diferenciação de mercado</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. MÓDULOS -->
-<section id="modulos" style="background:var(--bg-2)">
-  <div class="wrap">
-    <p class="eyebrow reveal">Módulos</p>
-    <h2 class="sec-title reveal" data-d="1">Uma plataforma. Seis modos de inteligência.</h2>
-    <p class="sec-intro reveal" data-d="2">Cada módulo do ExecutivoX foi projetado para entregar inteligência específica ao perfil executivo que mais precisa dela.</p>
-    <div class="mods">
-      <div class="mod reveal"><div class="imgwrap"><img src="assets/mod-ceo.jpg" alt="CEO Mode"></div><h3>CEO Mode</h3><p>Visão 360° do negócio. Indicadores estratégicos e alertas de risco em tempo real.</p></div>
-      <div class="mod reveal" data-d="1"><div class="imgwrap"><img src="assets/mod-cfo.jpg" alt="CFO Mode"></div><h3>CFO Mode</h3><p>Análise financeira profunda. Fluxo de caixa, EBITDA, margens e perdas ocultas.</p></div>
-      <div class="mod reveal" data-d="2"><div class="imgwrap"><img src="assets/mod-coo.jpg" alt="COO Mode"></div><h3>COO Mode</h3><p>Eficiência operacional. Produção, logística e gargalos identificados automaticamente.</p></div>
-      <div class="mod reveal" data-d="3"><div class="imgwrap"><img src="assets/mod-sales.jpg" alt="Sales Mode"></div><h3>Sales Mode</h3><p>Inteligência comercial. Clientes mais lucrativos, oportunidades e previsão de receita.</p></div>
-      <div class="mod reveal"><div class="imgwrap"><img src="assets/mod-rh.jpg" alt="RH Mode"></div><h3>RH Mode</h3><p>Gestão de pessoas orientada por dados. Produtividade, turnover e talentos estratégicos.</p></div>
-      <div class="mod reveal" data-d="1"><div class="imgwrap"><img src="assets/mod-ia.jpg" alt="IA Autônoma"></div><h3>IA Autônoma</h3><p>A IA age proativamente, detectando anomalias e gerando alertas antes que virem problemas.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. IA CONVERSACIONAL -->
-<section id="ia">
-  <div class="glow glow-1"></div>
-  <div class="wrap">
-    <p class="eyebrow reveal">IA Conversacional</p>
-    <h2 class="sec-title reveal" data-d="1">Converse agora com nossa IA</h2>
-    <div class="conv">
-      <div class="conv-panel reveal">
-        <h3>Perguntas que o ExecutivoX responde em segundos</h3>
-        <ul>
-          <li>Onde estou perdendo dinheiro?</li>
-          <li>Qual cliente gera mais lucro?</li>
-          <li>Qual unidade tem menor rentabilidade?</li>
-          <li>Como reduzir custos operacionais?</li>
-        </ul>
-        <p>Faça qualquer pergunta sobre sua empresa em linguagem natural e receba respostas estratégicas imediatas — como ter um analista sênior disponível 24/7.</p>
-      </div>
-      <div class="reveal" data-d="1">
-        <p class="quote"><b>ExecutivoX detectou:</b> Perda de margem de 8,2% relacionada ao aumento do custo logístico e estoque parado. Recomendação: revisar contratos com transportadoras e acelerar giro do SKU X-47.</p>
-        <div class="greenbox">
-          <span class="chk">✓</span>
-          <span>Interface inspirada nos melhores assistentes de IA do mundo — com identidade e inteligência próprias da TexanGroup.</span>
+    <main id="top">
+      <section class="hero section-hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Camada de inteligência executiva</p>
+          <h1 class="hero-title">
+            <span>Você tem dados</span>
+            <span>Mas não tem clareza</span>
+          </h1>
+          <p class="hero-subtitle">
+            O ExecutivoX transforma informações dispersas em decisões executivas
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5519978033293" target="_blank" rel="noopener">Agendar Demonstração</a>
+            <a class="btn btn-secondary" href="#ia">Ver o ExecutivoX em ação</a>
+          </div>
+          <div class="hero-proof" aria-label="Diferenciais do ExecutivoX">
+            <span>Clareza de margem</span>
+            <span>Controle executivo</span>
+            <span>Decisão mais rápida</span>
+          </div>
+          <template id="hero-variant-loss-question" data-test-variant="hero-loss-question">
+            <h1>Onde sua empresa está perdendo dinheiro hoje?</h1>
+            <p>Pergunte ao ExecutivoX</p>
+            <a href="#ia">Ver o ExecutivoX em ação</a>
+          </template>
         </div>
-        <img class="conv-img" src="assets/chat.jpg" alt="Interface de conversa do ExecutivoX">
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- 7. DIFERENCIAIS -->
-<section style="background:var(--bg-2)">
-  <div class="wrap">
-    <div class="dif">
-      <div class="dif-left">
-        <p class="eyebrow left-eyebrow reveal">Diferenciais TexanGroup</p>
-        <h2 class="reveal" data-d="1">Por que o ExecutivoX é diferente de tudo que você já viu</h2>
-        <div class="dcard reveal" data-d="1"><h3>IA Proprietária</h3><p>Tecnologia desenvolvida internamente pela TexanGroup, treinada para o contexto corporativo brasileiro.</p></div>
-        <div class="dcard reveal" data-d="2"><h3>Integração Sem Substituição</h3><p>Conecta-se ao seu ERP, CRM e sistemas existentes sem necessidade de migração ou substituição.</p></div>
-        <div class="dcard reveal" data-d="3"><h3>Arquitetura Enterprise</h3><p>Segurança corporativa de nível bancário, escalabilidade ilimitada e conformidade com LGPD.</p></div>
-        <div class="dcard reveal" data-d="4"><h3>Especialistas em IA</h3><p>Time dedicado de especialistas em inteligência artificial e gestão empresarial ao seu lado.</p></div>
-      </div>
-      <div class="dif-img reveal" data-d="1" role="img" aria-label="Data center corporativo"></div>
-    </div>
-  </div>
-</section>
+        <div class="hero-visual reveal" aria-label="Conversa com a inteligência executiva">
+          <div class="executive-panel conversation-panel">
+            <div class="conversation-top">
+              <div>
+                <span>ExecutivoX IA</span>
+                <strong>Análise executiva em tempo real</strong>
+              </div>
+              <div class="live-status">
+                <span></span>
+                Online
+              </div>
+            </div>
 
-<!-- 8. PROVA SOCIAL -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow reveal">Prova Social</p>
-    <h2 class="sec-title reveal" data-d="1">Impacto real em múltiplos setores</h2>
-    <p class="sec-intro reveal" data-d="2">O ExecutivoX já transforma a tomada de decisão em empresas de Indústria, Agronegócio, Saúde, Governo, Varejo e Logística.</p>
-    <div class="stats">
-      <div class="stat reveal"><div class="num" data-count="70" data-suffix="%">0%</div><div class="lbl">Menos Tempo</div><p class="desc">Redução no tempo gasto analisando dados e gerando relatórios.</p></div>
-      <div class="stat reveal" data-d="1"><div class="num" data-count="15" data-suffix="%">0%</div><div class="lbl">Menos Desperdício</div><p class="desc">Redução de desperdícios operacionais identificados pela IA.</p></div>
-      <div class="stat reveal" data-d="2"><div class="num" data-count="500" data-suffix="%">0%</div><div class="lbl">ROI Máximo</div><p class="desc">Retorno sobre investimento entre 200% e 500% comprovado.</p></div>
-      <div class="stat reveal" data-d="3"><div class="num">3–6m</div><div class="lbl">Payback</div><p class="desc">Retorno do investimento entre 3 e 6 meses após a implantação.</p></div>
-    </div>
-    <img class="setores reveal" src="assets/setores.jpg" alt="Setores atendidos: Indústria, Agronegócio, Saúde, Governo, Varejo e Logística">
-  </div>
-</section>
+            <div class="hero-questions" aria-label="Perguntas rápidas para o ExecutivoX">
+              <button class="hero-question active" type="button" data-hero-question="margin" aria-pressed="true">
+                Onde estou perdendo margem?
+              </button>
+              <button class="hero-question" type="button" data-hero-question="unit" aria-pressed="false">
+                Qual área gera menos lucro?
+              </button>
+              <button class="hero-question" type="button" data-hero-question="week" aria-pressed="false">
+                O que devo corrigir esta semana?
+              </button>
+            </div>
 
-<!-- 9. COMMAND CENTER -->
-<section style="background:var(--bg-2)">
-  <div class="wrap">
-    <p class="eyebrow reveal">Demonstração Visual</p>
-    <h2 class="sec-title reveal" data-d="1">O ExecutivoX Command Center</h2>
-    <div class="grid2">
-      <div class="ccard reveal"><h3>Dashboard Executivo</h3><p>Receita, Lucro, Margem e EBITDA em tempo real.</p></div>
-      <div class="ccard reveal" data-d="1"><h3>Radar de Oportunidades</h3><p>Mapa visual de oportunidades e riscos identificados pela IA.</p></div>
-      <div class="ccard reveal" data-d="2"><h3>Análise Integrada</h3><p>Financeiro, Operacional e Comercial em uma única tela.</p></div>
-      <div class="ccard reveal" data-d="3"><h3>Insights por IA</h3><p>Recomendações estratégicas geradas automaticamente a cada ciclo.</p></div>
-    </div>
-  </div>
-</section>
+            <div class="executive-conversation">
+              <div class="ceo-question" data-hero-ceo-bubble>
+                <span>CEO</span>
+                <p data-hero-ceo-question>Onde estou perdendo margem?</p>
+              </div>
 
-<!-- 10. CTA FINAL + FOOTER -->
-<section id="contato">
-  <div class="glow glow-2"></div>
-  <div class="wrap final">
-    <div class="final-cta reveal">
-      <h2>Pare de Procurar Relatórios.<br>Comece a Receber Respostas.</h2>
-      <p>Transforme dados corporativos em inteligência estratégica para tomada de decisão imediata. O ExecutivoX está pronto para responder qualquer pergunta sobre sua empresa — agora.</p>
-      <div class="btns">
-        <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener" class="btn btn-solid">Agendar Demonstração</a>
-        <a href="#ia" class="btn btn-outline js-open-ia">Conversar com a IA</a>
-      </div>
-    </div>
-  </div>
-</section>
+              <div class="executivox-answer" data-hero-ai-bubble>
+                <span>ExecutivoX IA</span>
+                <p data-hero-ai-answer>Identificamos três prioridades: logística, estoque parado e rentabilidade por cliente. Esses fatores estão pressionando sua margem operacional.</p>
+              </div>
+            </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="glow glow-1" style="opacity:.25"></div>
-  <div class="wrap">
-    <div class="footer-grid reveal">
-
-      <div class="f-brand">
-        <span class="logo"><img src="assets/logo-texan.png" alt="TexanGroup"></span>
-        <p class="f-tag">Inteligência artificial estratégica que transforma os dados da sua empresa em decisões imediatas.</p>
-        <div class="f-social">
-          <a href="https://www.linkedin.com/company/texan-group/?viewAsMember=true" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.25 8h4.5v12h-4.5V8zm7.25 0h4.3v1.64h.06c.6-1.1 2.06-2.26 4.24-2.26 4.53 0 5.37 2.98 5.37 6.86V20h-4.5v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.29 1.55-2.29 3.15V20h-4.5V8z"/></svg></a>
-          <a href="https://www.instagram.com/texangroup_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36zm5.48-2.9a1.24 1.24 0 1 1 0 2.48 1.24 1.24 0 0 1 0-2.48z"/></svg></a>
-          <a href="https://wa.me/5519978033293" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.18-1.36a9.93 9.93 0 0 0 4.86 1.24c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.08.8.82-3-.2-.32a8.16 8.16 0 0 1-1.26-4.38c0-4.55 3.7-8.24 8.26-8.24 4.55 0 8.24 3.69 8.24 8.24 0 4.56-3.69 8.26-8.24 8.26zm4.52-6.18c-.25-.13-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29z"/></svg></a>
+            <div class="conversation-footer">
+              <span></span>
+              Atualizado em tempo real
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="section conversation-section" id="ia">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Pergunte qualquer coisa</p>
+          <h2>A empresa responde</h2>
+        </div>
+
+        <div class="conversation-layout">
+          <div class="question-list reveal stagger">
+            <button class="question-option active" type="button" data-question="margin">Onde perdi margem</button>
+            <button class="question-option" type="button" data-question="cost">Qual custo está crescendo</button>
+            <button class="question-option" type="button" data-question="client">Qual cliente destrói lucro</button>
+            <button class="question-option" type="button" data-question="action">O que corrigir agora</button>
+            <button class="question-option" type="button" data-question="risk">Qual risco ninguém viu</button>
+          </div>
+
+          <div class="chat-window reveal" aria-label="Mockup de conversa com a IA">
+            <div class="chat-header">
+              <span>ExecutivoX IA</span>
+              <strong>Análise concluída</strong>
+            </div>
+            <div class="message user-message">
+              <span>CEO</span>
+              <p id="ceo-question">Onde perdi margem</p>
+            </div>
+            <div class="message ai-message">
+              <span>ExecutivoX</span>
+              <p id="executivox-answer">Pressão em logística, estoque e rentabilidade. Prioridade: frete e giro.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section architecture-section" id="como-funciona">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Dos sistemas à resposta executiva</h2>
+        </div>
+
+        <div class="function-flow reveal" aria-label="Como o ExecutivoX conecta dados à decisão">
+          <div class="function-sources">
+            <span>ERP</span>
+            <span>CRM</span>
+            <span>Financeiro</span>
+            <span>Operações</span>
+          </div>
+
+          <div class="flow-arrow" aria-hidden="true"></div>
+
+          <div class="function-core">
+            <span>ExecutivoX</span>
+          </div>
+
+          <div class="flow-arrow" aria-hidden="true"></div>
+
+          <div class="function-answer">
+            <span>Resposta Executiva</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section command-section" id="command">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Command Center</p>
+          <h2>Indicadores essenciais<br />Ações imediatas</h2>
+        </div>
+
+        <div class="command-center reveal" aria-label="Mockup do Command Center ExecutivoX">
+          <div class="command-top">
+            <span>ExecutivoX Command Center</span>
+          </div>
+
+          <div class="command-kpis stagger">
+            <button class="command-kpi active" type="button" data-command-metric="revenue">
+              <span>Receita</span>
+            </button>
+            <button class="command-kpi" type="button" data-command-metric="margin">
+              <span>Margem</span>
+            </button>
+            <button class="command-kpi" type="button" data-command-metric="ebitda">
+              <span>EBITDA</span>
+            </button>
+          </div>
+
+          <div class="command-body">
+            <div class="chart-panel">
+              <div class="panel-title">
+                <span data-command-chart-title>Receita</span>
+                <strong data-command-chart-status>Oportunidade</strong>
+              </div>
+              <svg class="command-chart" viewBox="0 0 640 240" role="img" aria-label="Gráfico de tendência">
+                <defs>
+                  <linearGradient id="lineGlow" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="100%" stop-color="#00d4ff" />
+                  </linearGradient>
+                </defs>
+                <path
+                  class="grid-line"
+                  d="M24 50H616 M24 110H616 M24 170H616 M24 230H616"
+                />
+                <path
+                  class="area-line draw-line"
+                  data-draw-line
+                  data-command-line
+                  stroke="url(#lineGlow)"
+                  d="M32 176 C116 134, 166 142, 232 104 S356 84, 430 110 S522 152, 608 72"
+                />
+                <g data-command-points>
+                  <circle class="chart-point" cx="32" cy="176" r="4.5" tabindex="0" />
+                  <circle class="chart-point" cx="139" cy="139" r="4.5" tabindex="0" />
+                  <circle class="chart-point" cx="232" cy="104" r="4.5" tabindex="0" />
+                  <circle class="chart-point" cx="430" cy="110" r="4.5" tabindex="0" />
+                  <circle class="chart-point is-current" cx="608" cy="72" r="6" tabindex="0" />
+                </g>
+              </svg>
+              <div class="chart-tooltip" data-chart-tooltip hidden></div>
+            </div>
+
+            <div class="radar-panel">
+              <div class="panel-title">
+                <span>Insight Executivo</span>
+                <strong data-command-insight-status>Oportunidade</strong>
+              </div>
+              <div class="executive-insight-card" data-command-insight-card>
+                <span class="insight-kicker">Insight Executivo</span>
+                <strong data-command-insight>Expandir contas de alta margem</strong>
+                <div class="insight-stack">
+                  <p class="insight-label" data-command-insight-label>Maior oportunidade identificada</p>
+                </div>
+              </div>
+              <div class="command-recommendation" data-command-recommendation>
+                Ação recomendada: priorizar contas rentáveis
+              </div>
+              <p class="command-impact" data-command-impact>
+                Impacto esperado: maior crescimento com menor custo de aquisição
+              </p>
+              <ul class="opportunity-list" data-command-opportunities>
+                <li>
+                  <div><span></span>Expansão comercial</div>
+                  <div class="opportunity-progress"><i style="--progress: 0.74"></i></div>
+                </li>
+                <li>
+                  <div><span></span>Mix de receita</div>
+                  <div class="opportunity-progress"><i style="--progress: 0.58"></i></div>
+                </li>
+                <li>
+                  <div><span></span>Clientes premium</div>
+                  <div class="opportunity-progress"><i style="--progress: 0.64"></i></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="ranking-panel">
+              <div class="panel-title">
+                <span>Alertas</span>
+                <strong class="alert-level status-monitor" data-command-alert-level>Monitoramento</strong>
+              </div>
+              <ol class="alert-list" data-command-alerts>
+                <li class="status-critical"><span>crítico</span>Pipeline concentrado</li>
+                <li class="status-warning"><span>atenção</span>Receita recorrente</li>
+                <li class="status-monitor"><span>monitoramento</span>Ticket médio</li>
+              </ol>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section difference-section" id="diferenciais">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Diferenciais</p>
+          <h2>Por que o ExecutivoX é diferente</h2>
+        </div>
+
+        <div class="card-grid four-columns stagger">
+          <article class="feature-card compact-card reveal">
+            <span class="card-icon">01</span>
+            <h3>Não substitui seus sistemas</h3>
+          </article>
+          <article class="feature-card compact-card reveal">
+            <span class="card-icon">02</span>
+            <h3>Transforma dados em respostas</h3>
+          </article>
+          <article class="feature-card compact-card reveal">
+            <span class="card-icon">03</span>
+            <h3>Revela desperdícios invisíveis</h3>
+          </article>
+          <article class="feature-card compact-card reveal">
+            <span class="card-icon">04</span>
+            <h3>Acelera decisões estratégicas</h3>
+          </article>
+        </div>
+      </section>
+
+      <div class="enterprise-proof reveal" aria-label="Credenciais enterprise">
+        <span>Desenvolvido pela Texan Group</span>
+        <span>Pólis de Tecnologia e Inovação de Campinas</span>
+        <span>Inteligência executiva para empresas que precisam decidir com precisão</span>
       </div>
 
-      <div class="f-col">
-        <h4>Plataforma</h4>
-        <a href="#problema">O Problema</a>
-        <a href="#solucao">A Solução</a>
-        <a href="#modulos">Módulos</a>
-        <a href="#ia">IA Conversacional</a>
-      </div>
+      <section class="section final-cta" id="demo">
+        <div class="final-cta-content reveal">
+          <p class="eyebrow">Próximo passo</p>
+          <h2>
+            Sua empresa já está gerando os dados<br />
+            O ExecutivoX mostra o que eles significam
+          </h2>
+          <div class="hero-actions centered">
+            <a class="btn btn-primary" href="https://wa.me/5519978033293" target="_blank" rel="noopener">Ver o ExecutivoX em ação</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      <div class="f-col">
-        <h4>Empresa</h4>
-        <a href="#contato">Diferenciais</a>
-        <a href="#contato">Casos de Uso</a>
-        <a href="https://www.texangroup.com.br">Sobre a TexanGroup</a>
-        <a href="https://wa.me/5519978033293?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20ExecutivoX." target="_blank" rel="noopener">Agendar Demo</a>
-      </div>
-
-      <div class="f-col f-contact">
-        <h4>Contato</h4>
-        <a href="https://maps.google.com/?q=Parque+de+Alta+Tecnologia+de+Campinas">
-          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <span>Parque de Alta Tecnologia<br>de Campinas — SP</span>
+    <footer class="site-footer" id="contato">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="ExecutivoX">
+          <img class="brand-logo" src="assets/brand/executivox-logo-site.png" alt="ExecutivoX" />
         </a>
-        <a href="https://www.texangroup.com.br">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>
-          <span>www.texangroup.com.br</span>
-        </a>
-        <a href="tel:+5519978033293">
-          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
-          <span>+55 19 97803-3293</span>
-        </a>
+        <p>
+          Inteligência executiva desenvolvida pela TexanGroup para empresas que
+          querem transformar dados em decisões estratégicas.
+        </p>
       </div>
 
-    </div>
-
-    <div class="footer-bottom">
-      <p>© <span id="year">2026</span> TexanGroup. Todos os direitos reservados.</p>
-      <div class="footer-legal">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">LGPD</a>
+      <div class="footer-links">
+        <a href="#diferenciais">Plataforma</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="https://wa.me/5519978033293" target="_blank" rel="noopener">Contato</a>
       </div>
-    </div>
-  </div>
-</footer>
 
-<script>
-  // Dynamic year
-  document.getElementById('year').textContent=new Date().getFullYear();
+      <div class="footer-contact">
+        <a href="https://wa.me/5519978033293" target="_blank" rel="noopener">+55 19 97803-3293</a>
+        <span>Pólis de Tecnologia e Inovação de Campinas &mdash; SP</span>
+        <span>&copy; 2026 TexanGroup. Todos os direitos reservados.</span>
+      </div>
+    </footer>
 
-  // Navbar background on scroll
-  const nav=document.getElementById('nav');
-  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-
-  // Scroll reveal
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // Animated counters
-  const fmt=n=>n.toString();
-  const countUp=el=>{
-    const target=+el.dataset.count,suffix=el.dataset.suffix||'',dur=1400;
-    let start=null;
-    const step=t=>{
-      if(!start)start=t;
-      const p=Math.min((t-start)/dur,1);
-      const eased=1-Math.pow(1-p,3);
-      el.textContent=fmt(Math.round(target*eased))+suffix;
-      if(p<1)requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const cio=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}});
-  },{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-
-  // Subtle hero parallax
-  const heroImg=document.querySelector('.hero-img');
-  window.addEventListener('scroll',()=>{
-    const y=window.scrollY;
-    if(y<800&&heroImg)heroImg.style.backgroundPosition='center '+(50+y*0.02)+'%';
-  },{passive:true});
-</script>
-
-<!-- Widget de IA conversacional (ElevenLabs ConvAI) -->
-<elevenlabs-convai agent-id="agent_9901kfxtzhbgf8r9bc2x99db4s3e"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-
-<script>
-  // "Conversar com a IA" abre/expande o widget da ElevenLabs (mostrando o Iniciar chamada)
-  (function(){
-    function clicarLauncher(root){
-      if(!root) return false;
-      var btns=root.querySelectorAll('button, [role="button"]');
-      if(!btns.length) return false;
-      var alvo=null;
-      btns.forEach(function(b){
-        var t=((b.textContent||'')+' '+(b.getAttribute('aria-label')||'')).toLowerCase();
-        if(/cham|call|start|iniciar|conversar|talk|falar/.test(t)) alvo=b;
-      });
-      (alvo||btns[0]).click();
-      return true;
-    }
-    function abrirIA(){
-      var w=document.querySelector('elevenlabs-convai');
-      var tentar=function(n){
-        if(w&&w.shadowRoot&&clicarLauncher(w.shadowRoot)) return;
-        if(n<25) setTimeout(function(){tentar(n+1);},150);
-      };
-      tentar(0);
-    }
-    document.querySelectorAll('.js-open-ia').forEach(function(el){
-      el.addEventListener('click',function(e){
-        e.preventDefault();
-        track('gerar_lead',{method:'ia_widget',event_category:'engajamento',event_label:rotulo(el),location:secao(el)});
-        track('open_ia_widget',{event_category:'ia',event_label:rotulo(el),location:secao(el)});
-        abrirIA();
-      });
-    });
-  })();
-</script>
-
-<!-- ===================== Google Analytics: mapeamento de eventos ===================== -->
-<script>
-(function(){
-  function track(name,params){ if(typeof gtag==='function'){ gtag('event',name,params||{}); } }
-  window.track=track;
-  function rotulo(el){ return (el.getAttribute('data-ga')||el.getAttribute('aria-label')||(el.textContent||'').trim()).slice(0,80); }
-  window.rotulo=rotulo;
-  function secao(el){ var s=el.closest('section,footer,nav'); return s?(s.id||s.tagName.toLowerCase()):'pagina'; }
-  window.secao=secao;
-
-  function init(){
-    // --- Cliques em WhatsApp (CTAs de demonstração e contato) ---
-    document.querySelectorAll('a[href*="wa.me"], a[href^="https://wa.me"]').forEach(function(a){
-      a.addEventListener('click',function(){
-        var txt=(a.textContent||'').toLowerCase();
-        var isDemo=/demonstra|agendar|solicitar|demo/.test(txt);
-        if(isDemo){ track('gerar_lead',{method:'whatsapp',event_category:'conversao',event_label:rotulo(a),location:secao(a)}); }
-        track('whatsapp_click',{event_category:'contato',event_label:rotulo(a),location:secao(a)});
-      });
-    });
-
-    // --- Navegação interna (menu topo, links do rodapé com âncora) ---
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      if(a.classList.contains('js-open-ia')) return; // já rastreado acima
-      a.addEventListener('click',function(){
-        track('nav_click',{event_category:'navegacao',event_label:rotulo(a),destino:a.getAttribute('href'),location:secao(a)});
-      });
-    });
-
-    // --- Redes sociais ---
-    document.querySelectorAll('.f-social a').forEach(function(a){
-      a.addEventListener('click',function(){
-        var rede=(a.getAttribute('aria-label')||'').toLowerCase()||'social';
-        track('social_click',{event_category:'social',event_label:rede,link_url:a.href});
-      });
-    });
-
-    // --- Contato (endereço, site, telefone) ---
-    document.querySelectorAll('.f-contact a').forEach(function(a){
-      a.addEventListener('click',function(){
-        var tipo=a.href.indexOf('tel:')===0?'telefone':(a.href.indexOf('maps')>-1?'endereco':'site');
-        track('contact_click',{event_category:'contato',event_label:tipo,link_url:a.href});
-      });
-    });
-
-    // --- Links externos genéricos (ex.: TexanGroup) ---
-    document.querySelectorAll('a[href^="http"]').forEach(function(a){
-      if(a.href.indexOf('wa.me')>-1) return;
-      if(a.closest('.f-social')||a.closest('.f-contact')) return;
-      a.addEventListener('click',function(){
-        track('outbound_click',{event_category:'saida',event_label:rotulo(a),link_url:a.href});
-      });
-    });
-
-    // --- Visualização de cada seção (engajamento por bloco) ---
-    var vistas={};
-    var secObserver=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var sec=e.target; var id=sec.id||'sec';
-          if(!vistas[id]){ vistas[id]=true; track('view_section',{event_category:'engajamento',event_label:id}); }
-          secObserver.unobserve(sec);
-        }
-      });
-    },{threshold:.4});
-    document.querySelectorAll('section[id], footer').forEach(function(s){ secObserver.observe(s); });
-
-    // --- Profundidade de rolagem (25/50/75/100%) ---
-    var marcos=[25,50,75,100], atingidos={};
-    function onScroll(){
-      var h=document.documentElement;
-      var pct=Math.round(((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100);
-      marcos.forEach(function(m){
-        if(pct>=m && !atingidos[m]){ atingidos[m]=true; track('scroll_depth',{event_category:'engajamento',event_label:m+'%',percent:m}); }
-      });
-    }
-    window.addEventListener('scroll',onScroll,{passive:true});
-
-    // --- Interações com o widget da IA (ElevenLabs): início/fim de chamada ---
-    var w=document.querySelector('elevenlabs-convai');
-    if(w){
-      ['elevenlabs-convai:call','convai-call-start','call-start'].forEach(function(ev){
-        w.addEventListener(ev,function(){ track('ia_call_start',{event_category:'ia',event_label:'elevenlabs'}); });
-      });
-      ['elevenlabs-convai:call-end','convai-call-end','call-end'].forEach(function(ev){
-        w.addEventListener(ev,function(){ track('ia_call_end',{event_category:'ia',event_label:'elevenlabs'}); });
-      });
-    }
-  }
-
-  if(document.readyState!=='loading'){ init(); } else { document.addEventListener('DOMContentLoaded',init); }
-})();
-</script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
